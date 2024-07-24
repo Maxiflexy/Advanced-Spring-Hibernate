@@ -1,0 +1,22 @@
+package com.maxiflexy.advancedhibernate.dao;
+
+import com.maxiflexy.advancedhibernate.entity.Instructor;
+import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@RequiredArgsConstructor
+@Repository
+public class AppDAOImpl implements AppDAO{
+
+    private final EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public void save(Instructor theInstructor) {
+        entityManager.persist(theInstructor);
+
+    }
+}
